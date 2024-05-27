@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #Menu {
+            width: 100%;
+            height: 56px;
+            backdrop-filter: blur(2px);
+            transition: all 0.5s;
+        }
+
+        #Menu:hover {
+            backdrop-filter: blur(5px);
+        }
+
+        #Menu div {
+            position: absolute;
+            transform: translateX(-50%);
+            left: 50%;
+        }
+
+        #Menu a {
+            color: white;
+            width: 120px;
+            height: 56px;
+            font-weight: 700;
+            display: table-cell;
+            font-family: Microsoft YaHei;
+            text-align: center;
+            text-decoration: none;
+            vertical-align: middle;
+            border-bottom: 5px solid #AAA;
+            transition: all 0.3s;
+        }
+
+        #Menu a:hover {
+            border-bottom: 5px solid #555;
+            width: 140px;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="Menu">
+        <div>
+            <a href="home.html" target="_top">主页</a>
+            <a href="info.html" target="_top">信息</a>
+            <a href="software.html" target="_top">软件</a>
+            <a href="contact.html" target="_top">联系</a>
+        </div>
+    </header>
+</body>
+
+</html>

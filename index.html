@@ -1,0 +1,259 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Start</title>
+    <style>
+        @keyframes AmBack {
+            0% {
+                opacity: 0;
+            }
+            20% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes AmView {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 0;
+                transform: scale(0);
+            }
+        }
+
+        @keyframes AmStartBox {
+            0% {
+                right: 100%;
+                opacity: 0;
+            }
+            20% {
+                right: 100%;
+                opacity: 0;
+            }
+        }
+
+        * {
+            font-family: Microsoft YaHei;
+        }
+
+        body {
+            margin: 0;
+            background-color: black;
+        }
+
+        #Power {
+            position: fixed;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+            font-size: 10vh;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 11;
+        }
+
+        #Mask {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        #Background {
+            background-image: url("https://imgapi.xl0408.top/index.php");
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            opacity: 1;
+            z-index: -1;
+            animation: AmBack 5s;
+        }
+
+        #View {
+            width: 600px;
+            height: 400px;
+            margin: auto;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            text-align: center;
+            border-radius: 15px;
+            backdrop-filter: blur(2px);
+            box-shadow: 0px 0px 10px black;
+            transition: all 0.5s;
+            animation: AmView 1s;
+        }
+
+        #View:hover {
+            backdrop-filter: blur(5px);
+            box-shadow: 5px 5px 15px #222;
+        }
+
+        #View #Title {
+            background-color: rgba(192, 224, 255, 0.8);
+            width: 100%;
+            height: 10%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #View #Title #Text {
+            color: black;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            font-size: 18px;
+        }
+
+        #View #Title #Close {
+            color: black;
+            width: 80px;
+            height: 100%;
+            padding-top: 8px;
+            position: absolute;
+            right: 0;
+            font-size: 18px;
+            transition: all 300ms;
+        }
+
+        #View #Title #Close:hover {
+            background-color: red;
+            color: white;
+        }
+
+        #View #Client {
+            width: 100%;
+            height: 90%;
+            position: relative;
+        }
+
+        #View #Client div {
+            background: linear-gradient(#AFF, #FAF, #FFA);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        #View #Client h1 {
+            color: #CEF;
+            width: 100%;
+            margin: 0;
+            padding-top: 32px;
+            font-size: 36px;
+        }
+
+        #View #Client p {
+            color: white;
+            width: 100%;
+            margin: 0;
+            padding-top: 32px;
+            font-size: 24px;
+        }
+
+        #StartBox {
+            width: 320px;
+            height: 50px;
+            position: absolute;
+            right: 2%;
+            bottom: 6%;
+            display: flex;
+            animation: AmStartBox 1s;
+        }
+
+        #StartBox p {
+            color: white;
+            position: absolute;
+            top: -20px;
+            font-size: 24px;
+        }
+
+        #BnStart,
+        #BnStart div {
+            background: white;
+            width: 64px;
+            height: 64px;
+            position: absolute;
+            right: 0%;
+            bottom: 0%;
+            border: none;
+            border-radius: 100%;
+        }
+
+        #BnStart div {
+            background-color: #DDD;
+            clip-path: polygon(30% 20%, 80% 50%, 30% 80%);
+            transition: all 0.3s;
+        }
+
+        #BnStart:hover>div {
+            background-color: #FAF;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="Background"></div>
+
+    <div id="View">
+        <div id="Title">
+            <label id="Text">Hello</label>
+            <label id="Close" onclick="OnTitleClose()">✕</label>
+        </div>
+        <div id="Client">
+            <div></div>
+            <h1>Welcome to Chiyuki's page</h1>
+            <p>你好，这里是ChiyukiGana的页面</p>
+        </div>
+    </div>
+
+    <div id="StartBox">
+        <p id="TxtStart">Click to home page</p>
+        <button id="BnStart" onclick="OnBnStart()">
+            <div></div>
+        </button>
+    </div>
+
+    <script>
+        const view = window.document.getElementById("View");
+        const sourceVx = view.offsetWidth;
+        const sourceVy = view.offsetHeight;
+
+        function ReSize() {
+            const dx = sourceVx * 2.5;
+            const dy = sourceVy * 2.5;
+            const wx = window.innerWidth;
+            const wy = window.innerHeight;
+            let zoom = 0.0;
+            if (sourceVx / sourceVy > wx / wy) zoom = wx / dx;
+            else zoom = wy / dy;
+            zoom = zoom.toFixed(1);
+            view.style.transform = "scale(" + zoom + ")";
+        }
+
+        function OnTitleClose() {
+            window.location.href = "pages/home.html"
+        }
+
+        function OnBnStart() {
+            window.location.href = "pages/home.html"
+        }
+
+        function main() {
+            ReSize();
+            window.addEventListener("resize", ReSize);
+        }
+        main();
+    </script>
+</body>
+
+</html>
