@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <title>Start</title>
     <style>
-        @keyframes AmBack {
+        @keyframes AmOpacity {
             0% {
                 opacity: 0;
             }
-            20% {
-                opacity: 0;
+
+            100% {
+                opacity: 1;
             }
         }
 
-        @keyframes AmView {
+        @keyframes AmDialog {
             0% {
                 opacity: 0;
                 transform: scale(0);
             }
+
             50% {
                 opacity: 0;
                 transform: scale(0);
@@ -29,6 +31,7 @@
                 right: 100%;
                 opacity: 0;
             }
+
             20% {
                 right: 100%;
                 opacity: 0;
@@ -44,60 +47,30 @@
             background-color: black;
         }
 
-        #Power {
-            position: fixed;
-            transform: translate(-50%, -50%);
-            left: 50%;
-            top: 50%;
-            font-size: 10vh;
-            opacity: 0;
-            cursor: pointer;
-            z-index: 11;
-        }
-
-        #Mask {
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        #Background {
-            background-image: url("https://imgapi.xl0408.top/index.php");
-            background-size: cover;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            opacity: 1;
-            z-index: -1;
-            animation: AmBack 5s;
-        }
-
-        #View {
-            width: 600px;
-            height: 400px;
-            margin: auto;
+        #Dialog {
             position: absolute;
+            margin: auto;
             left: 0;
             top: 0;
             right: 0;
             bottom: 0;
+            width: 600px;
+            height: 400px;
             overflow: hidden;
             text-align: center;
             border-radius: 15px;
             backdrop-filter: blur(2px);
             box-shadow: 0px 0px 10px black;
             transition: all 0.5s;
-            animation: AmView 1s;
+            animation: AmDialog 1s;
         }
 
-        #View:hover {
+        #Dialog:hover {
             backdrop-filter: blur(5px);
             box-shadow: 5px 5px 15px #222;
         }
 
-        #View #Title {
+        #Dialog #Title {
             background-color: rgba(192, 224, 255, 0.8);
             width: 100%;
             height: 10%;
@@ -105,7 +78,7 @@
             overflow: hidden;
         }
 
-        #View #Title #Text {
+        #Dialog #Title #Text {
             color: black;
             position: absolute;
             transform: translate(-50%, -50%);
@@ -113,7 +86,7 @@
             font-size: 18px;
         }
 
-        #View #Title #Close {
+        #Dialog #Title #Close {
             color: black;
             width: 80px;
             height: 100%;
@@ -124,18 +97,18 @@
             transition: all 300ms;
         }
 
-        #View #Title #Close:hover {
+        #Dialog #Title #Close:hover {
             background-color: red;
             color: white;
         }
 
-        #View #Client {
+        #Dialog #Client {
             width: 100%;
             height: 90%;
             position: relative;
         }
 
-        #View #Client div {
+        #Dialog #Client div {
             background: linear-gradient(#AFF, #FAF, #FFA);
             width: 100%;
             height: 100%;
@@ -144,7 +117,7 @@
             z-index: -1;
         }
 
-        #View #Client h1 {
+        #Dialog #Client h1 {
             color: #CEF;
             width: 100%;
             margin: 0;
@@ -152,7 +125,7 @@
             font-size: 36px;
         }
 
-        #View #Client p {
+        #Dialog #Client p {
             color: white;
             width: 100%;
             margin: 0;
@@ -202,9 +175,9 @@
 </head>
 
 <body>
-    <div id="Background"></div>
-
-    <div id="View">
+    <img id="backgroundImage" src="https://imgapi.xl0408.top/index.php"
+        style="position:fixed;width:100%;height:100%;object-fit:cover;z-index:-1;">
+    <div id="Dialog">
         <div id="Title">
             <label id="Text">Hello</label>
             <label id="Close" onclick="OnTitleClose()">✕</label>
@@ -222,13 +195,12 @@
             <div></div>
         </button>
     </div>
-
-    <script>
-        const view = window.document.getElementById("View");
-        const sourceVx = view.offsetWidth;
-        const sourceVy = view.offsetHeight;
-
-        function ReSize() {
+    <script src="script/script.js"></script>
+    <script id="DialogZoom">
+        const dialog = window.document.getElementById("Dialog");
+        const sourceVx = dialog.offsetWidth;
+        const sourceVy = dialog.offsetHeight;
+        function Zoom() {
             const dx = sourceVx * 2.5;
             const dy = sourceVy * 2.5;
             const wx = window.innerWidth;
@@ -237,22 +209,14 @@
             if (sourceVx / sourceVy > wx / wy) zoom = wx / dx;
             else zoom = wy / dy;
             zoom = zoom.toFixed(1);
-            view.style.transform = "scale(" + zoom + ")";
+            dialog.style.transform = "scale(" + zoom + ")";
         }
-
-        function OnTitleClose() {
-            window.location.href = "pages/home.html"
-        }
-
-        function OnBnStart() {
-            window.location.href = "pages/home.html"
-        }
-
-        function main() {
-            ReSize();
-            window.addEventListener("resize", ReSize);
-        }
-        main();
+        function ZoomStart() { Zoom(); window.addEventListener("resize", Zoom); }
+        ZoomStart();
+    </script>
+    <script id="MessageBox">
+        function OnTitleClose() { window.location.href = "pages/home.html" }
+        function OnBnStart() { window.location.href = "pages/home.html" }
     </script>
 </body>
 

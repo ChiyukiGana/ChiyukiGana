@@ -3,47 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>ChiyukiGana</title>
-    <style>
-        @keyframes AmBack {
-            0% {
-                opacity: 1;
-            }
-
-            100% {
-                opacity: 0.2;
-            }
-        }
-
-        * {
-            font-family: Microsoft YaHei;
-        }
-
-        body {
-            margin: 0;
-            background-color: black;
-        }
-
-        #Back {
-            background-image: url("https://imgapi.xl0408.top/index.php");
-            background-size: cover;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-        }
-
-        #Back div {
-            background-color: black;
-            width: 100%;
-            height: 100%;
-            opacity: 0.2;
-            animation: AmBack 5s;
-        }
-    </style>
+    <link href="style/style.css" rel="stylesheet">
+    <style></style>
 </head>
 
 <body>
-    <div id="Back"><div></div></div>
-    <iframe id="Menu" src="menu.html" width="100%" height="56px" frameborder="0" style="position: fixed;"></iframe>
+    <img id="backgroundImage" src="https://imgapi.xl0408.top/index.php" style="position:fixed;width:100%;height:100%;object-fit:cover;z-index:-1;">
+    <iframe id="Menu" src="menu.html" width="100%" height="56px" frameborder="0" style="position:fixed;z-index:100;"></iframe>
+
+    <div id="View">
+        <div class="Box">Noting</div>
+    </div>
+    <script src="script/script.js"></script>
 </body>
 
 </html>

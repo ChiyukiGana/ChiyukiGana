@@ -3,59 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Contact</title>
+    <link href="style/style.css" rel="stylesheet">
     <style>
-        @keyframes AmBack {
-            0% {
-                opacity: 1;
-            }
-
-            100% {
-                opacity: 0.2;
-            }
-        }
-
-        * {
-            font-family: Microsoft YaHei
-        }
-
-        body {
-            margin: 0;
-            background-color: black;
-        }
-
-        #Back {
-            background-image: url("https://imgapi.xl0408.top/index.php");
-            background-size: cover;
-            width: 100%;
-            height: 100%;
-            position: fixed;
-        }
-
-        #Back div {
-            background-color: black;
-            width: 100%;
-            height: 100%;
-            opacity: 0.2;
-            animation: AmBack 5s;
-        }
-
-        #View {
-            color: white;
-            width: 900px;
-            height: 100%;
-            position: fixed;
-            left: 0;
-            top: 56px;
-            right: 0;
-            margin: auto;
+        #Contact {
             text-align: center;
         }
 
-        .Row {
+        #Contact .Row {
             font-size: 32px;
         }
 
-        #QrS {
+        #Contact #QrS {
             position: absolute;
             transform: translateX(-50%);
             left: 50%;
@@ -63,7 +21,7 @@
             display: flex;
         }
 
-        .QrBox {
+        #Contact .QrBox {
             background-color: white;
             margin: 30px;
             padding: 20px;
@@ -72,7 +30,7 @@
             border-radius: 10px;
         }
 
-        .QrBox P {
+        #Contact .QrBox P {
             color: #555;
             margin: 0;
             margin-top: 10px;
@@ -82,27 +40,28 @@
 </head>
 
 <body>
-    <div id="Back"><div></div></div>
-
-    <iframe src="menu.html" width="100%" height="56px" frameborder="0" style="position: fixed;"></iframe>
-
+    <img id="backgroundImage" src="https://imgapi.xl0408.top/index.php"
+        style="position:fixed;width:100%;height:100%;object-fit:cover;z-index:-1;">
+    <iframe id="Menu" src="menu.html" width="100%" height="56px" frameborder="0"
+        style="position:fixed;z-index:100;"></iframe>
     <div id="View">
-        <p class="Row">chiyukigana-low@outlook.com</p>
-        <p class="Row">bilibili: <a style="color: white;text-decoration: none;" href="http://bili.cyk.moe">千雪加奈</a></p>
-        <p class="Row">加入QQ群</p>
-        <div id="QrS">
-            <div class="QrBox">
-                <img src="res/fans.png" width="192px" height="192px">
-                <p style="font-size: 20px;">258419174</p>
-                <p>粉丝</p>
-            </div>
-            <div class="QrBox">
-                <img src="res/software.png" width="192px" height="192px">
-                <p style="font-size: 20px;">314575508</p>
-                <p>软件</p>
+        <div class="Box">
+            <div id="Contact">
+                <p class="Row">chiyukigana-low@outlook.com</p>
+                <p class="Row">bilibili: <a style="color: #FBF;text-decoration: none;" href="http://bili.cyk.moe">千雪加奈</a>
+                </p>
+                <p class="Row">加入QQ群:</p>
+                <div id="QrS">
+                    <div class="QrBox">
+                        <img src="res/software.png" width="192px" height="192px">
+                        <p style="font-size: 20px;">528213061</p>
+                        <p>软件</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <script src="script/script.js"></script>
 </body>
 
 </html>

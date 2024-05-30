@@ -1,0 +1,36 @@
+@keyframes AmOpacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+* {
+    font-family: Microsoft YaHei;
+}
+
+body {
+    color: white;
+    background-color: black;
+    margin: 0;
+}
+
+#View {
+    /*border: 2px solid red;*/
+    padding-top: 128px;
+    margin: auto;
+    width: 1000px;
+    height: 1800px;
+}
+
+#View .Box {
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 900px;
+    height: 1000px;
+    padding: 50px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px)
+}

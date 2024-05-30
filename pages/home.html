@@ -3,47 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title>ChiyukiGana</title>
+    <link href="style/style.css" rel="stylesheet">
     <style>
-        @keyframes AmBack {
-            0% {
-                opacity: 1;
-            }
-
-            100% {
-                opacity: 0.2;
-            }
+        #Person #NameBar {
+            display: flex;
+            flex: 10;
         }
 
-        * {
-            font-family: Microsoft YaHei;
+        #Person #NameBar #IdBox {
+            margin-left: 50px;
+            margin-top: 60px;
+            font-size: 48px;
         }
 
-        body {
+        #Person #NameBar #IdBox #Name {
             margin: 0;
-            background-color: black;
+            margin-bottom: 10px;
+            font-size: 48px;
         }
 
-        #Back {
-            background-image: url("https://imgapi.xl0408.top/index.php");
-            background-size: cover;
-            width: 100%;
-            height: 100%;
-            position: fixed;
+        #Person #NameBar #IdBox #Job {
+            margin: 0;
+            font-size: 28px;
         }
 
-        #Back div {
-            background-color: black;
-            width: 100%;
-            height: 100%;
-            opacity: 0.2;
-            animation: AmBack 5s;
+        #Person #Text {
+            margin-top: 50px;
+            font-size: 28px;
         }
     </style>
 </head>
 
 <body>
-    <div id="Back"><div></div></div>
-    <iframe id="Menu" src="menu.html" width="100%" height="56px" frameborder="0" style="position: fixed;"></iframe>
+    <img id="backgroundImage" style="position:fixed;width:100%;height:100%;object-fit:cover;z-index:-1;">
+    <iframe id="Menu" src="menu.html" width="100%" height="56px" frameborder="0"
+        style="position:fixed;z-index:100;"></iframe>
+
+    <div id="View">
+        <div class="Box">
+            <div id="Person">
+                <div id="NameBar">
+                    <img id="Face"
+                        src="https://avatars.githubusercontent.com/u/101380693?s=400&u=de22575f2a1693203d3fc41eacf88ba3549f7768&v=4"
+                        style="width:200px;height:200px;border-radius:100%;">
+                    <div id="IdBox">
+                        <h1 id="Name">ChiyukiGana</h1>
+                        <h2 id="Job">C++ programmer</h2>
+                    </div>
+                </div>
+                <div id="Text">
+                    还没有想好内容...
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script/script.js"></script>
 </body>
 
 </html>
