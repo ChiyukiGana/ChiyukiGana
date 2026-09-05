@@ -1,0 +1,58 @@
+{
+    "versions":[
+        {
+            "title":"2026-8-18",
+            "note":"翻译编辑说明\n优化高精度等待",
+            "files": [
+                {
+                    "name":"Zz压缩包",
+                    "file":"https://cyk.moe/qinput/Quickinput_2026-8-18.7z"
+                },
+                {
+                    "name":"exe安装包",
+                    "file":"https://cyk.moe/qinput/Quickinput_2026-8-18.exe"
+                }
+            ]
+        },
+        {
+            "title":"OCR功能和语言",
+            "note":"下载模块和需要的语言并解压到OCR文件夹\n",
+            "files": [
+                {
+                    "name":"模块",
+                    "file":"https://cyk.moe/qinput/ocr/模块.zip"
+                },
+                {
+                    "name":"中文",
+                    "file":"https://cyk.moe/qinput/ocr/中文.zip"
+                },
+                {
+                    "name":"繁中",
+                    "file":"https://cyk.moe/qinput/ocr/繁中.zip"
+                },
+                {
+                    "name":"英文",
+                    "file":"https://cyk.moe/qinput/ocr/英文.zip"
+                },
+                {
+                    "name":"日文",
+                    "file":"https://cyk.moe/qinput/ocr/日文.zip"
+                },
+                {
+                    "name":"前往蓝奏云下载",
+                    "file":"https://mew.lanzouu.com/b00hqqgxid"
+                }
+            ]
+        },
+        {
+            "title":"2026-7-18",
+            "note":"增加自定义语言\n增加运行前宏\n增加文件函数",
+            "files": [
+                {
+                    "name":"Zz压缩包",
+                    "file":"https://cyk.moe/qinput/Quickinput_2026-7-18.7z"
+                }
+            ]
+        }
+    ]
+}
